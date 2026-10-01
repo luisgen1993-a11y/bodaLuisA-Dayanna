@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda Luis & Dayanna - 19 Diciembre 2026</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --navy-bg-deep: #0e1726;
+            --navy-bg-mid: #182842;
+            --navy-bg-light: #253b5e;
+            --cream-bg: #fdfaf2;
+            --cream-card: #FAF6ED;
+            --gold-accent: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-border: rgba(212, 175, 55, 0.4);
+            --text-dark: #2c3848;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--navy-bg-deep);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Luxury Romantic Background Layer */
+        .luxury-bg {
+            background: 
+                radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(196, 164, 104, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 10% 70%, rgba(184, 51, 80, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at top, #243859 0%, #15233b 50%, #0c1321 100%);
+        }
+
+        .luxury-card-bg {
+            background: linear-gradient(135deg, #FAF6ED 0%, #f7f0e3 100%);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.15);
+        }
+
+        /* Gold Foil Border Effect */
+        .gold-border-card {
+            border: 1px solid var(--gold-border);
+            position: relative;
+        }
+
+        .gold-border-card::before {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border: 1px stroke rgba(212, 175, 55, 0.25);
+            border-style: dashed;
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        .font-script {
+            font-family: 'Alex Brush', cursive;
+        }
+
+        .font-serif-title {
+            font-family: 'Cinzel', serif;
+        }
+
+        .font-sans-clean {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Custom Ribbon Shape with Gold Accents */
+        .ribbon-banner {
+            position: relative;
+            background: linear-gradient(135deg, #fdfaf2 0%, #f4ebd9 100%);
+            color: #2c3848;
+            padding: 10px 45px;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25), 0 0 10px rgba(212, 175, 55, 0.3);
+            clip-path: polygon(15px 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 15px 100%, 0% 50%);
+            border-top: 1px solid #d4af37;
+            border-bottom: 1px solid #d4af37;
+        }
+
+        /* Scalloped / Arch photo frames */
+        .photo-frame-scallop {
+            border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+            border: 3px solid #FAF6ED;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.35), 0 0 15px rgba(212, 175, 55, 0.2);
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .photo-frame-clover {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            border: 3px solid #FAF6ED;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.35), 0 0 15px rgba(212, 175, 55, 0.2);
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .photo-frame-scallop:hover, .photo-frame-clover:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 25px rgba(212, 175, 55, 0.35);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        /* Romantic Bokeh Glowing Particles Animation */
+        @keyframes bokehSparkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8) translateY(0); }
+            50% { opacity: 0.8; transform: scale(1.2) translateY(-12px); }
+        }
+        .bokeh-light {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(243, 229, 171, 0.6) 0%, rgba(212, 175, 55, 0) 70%);
+            pointer-events: none;
+            animation: bokehSparkle 4s ease-in-out infinite;
+        }
+
+        .modal-overlay {
+            background-color: rgba(10, 16, 28, 0.85);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Spinning Vinyl Record Animation for Music Player */
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spinSlow 12s linear infinite;
+        }
+        .paused-spin {
+            animation-play-state: paused !important;
+        }
+
+        /* Animated Sound Wave Bars */
+        .sound-bar {
+            width: 3px;
+            height: 12px;
+            background-color: #d4af37;
+            border-radius: 3px;
+            animation: soundWave 1.2s ease-in-out infinite alternate;
+        }
+        .sound-bar:nth-child(2) { animation-delay: 0.2s; }
+        .sound-bar:nth-child(3) { animation-delay: 0.4s; }
+        .sound-bar:nth-child(4) { animation-delay: 0.1s; }
+        .sound-bar:nth-child(5) { animation-delay: 0.3s; }
+
+        @keyframes soundWave {
+            0% { height: 4px; opacity: 0.4; }
+            100% { height: 22px; opacity: 1; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start antialiased selection:bg-amber-200 selection:text-navy-900 luxury-bg">
+
+    <!-- FLOATING MUSIC CONTROLLER BADGE -->
+    <div id="musicFloatingBar" class="fixed bottom-5 right-5 z-40 flex items-center gap-3 bg-[#182842]/95 backdrop-blur-md text-amber-100 border border-[#d4af37]/60 rounded-full px-4 py-2.5 shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer" onclick="toggleAudio()">
+        <div id="musicIcon" class="w-8 h-8 rounded-full bg-[#d4af37]/20 flex items-center justify-center text-[#d4af37]">
+            <i id="musicMainIcon" class="fas fa-play text-xs"></i>
+        </div>
+        <div class="text-left pr-1">
+            <p id="musicStatusText" class="text-[10px] font-sans-clean tracking-wider uppercase text-amber-200 font-bold leading-none">Toca para reproducir</p>
+            <p id="musicTrackSub" class="text-[9px] font-serif italic text-amber-100/80 leading-tight">Elvis Presley - Can't Help Falling in Love</p>
+        </div>
+    </div>
+
+    <!-- Reproductor de Audio con Generador Web Audio API Integrado -->
+    <!-- Reproductor de YouTube escondido (controlado por los botones de música) -->
+    <div style="position:fixed;bottom:0;left:0;width:1px;height:1px;overflow:hidden;opacity:0.01;pointer-events:none;" aria-hidden="true">
+        <div id="ytPlayerHolder"></div>
+    </div>
+
+    <!-- SECTION 1: HERO & MAIN CARD -->
+    <section class="relative w-full min-h-screen luxury-bg flex flex-col items-center justify-center p-4 md:p-10 overflow-hidden">
+        
+        <!-- Ambient Glowing Bokeh Particles -->
+        <div class="bokeh-light w-32 h-32 top-10 right-10 opacity-40" style="animation-delay: 0s;"></div>
+        <div class="bokeh-light w-48 h-48 bottom-20 left-12 opacity-30" style="animation-delay: 1.5s;"></div>
+        <div class="bokeh-light w-24 h-24 top-1/2 left-1/4 opacity-50" style="animation-delay: 2.5s;"></div>
+        <div class="bokeh-light w-40 h-40 top-1/3 right-1/4 opacity-35" style="animation-delay: 0.8s;"></div>
+
+        <!-- MAIN IVORY INVITATION CARD -->
+        <div class="relative w-full max-w-4xl luxury-card-bg gold-border-card text-[#2c3848] rounded-sm p-6 md:p-14 z-10 my-12">
+            
+            <!-- Date Top Header with Golden Accent Lines -->
+            <div class="flex justify-between items-center text-xs md:text-sm tracking-[0.3em] font-sans-clean text-amber-900/80 mb-8 px-4 md:px-16 font-semibold">
+                <span class="border-b border-amber-800/30 pb-1">19 DIC</span>
+                <span class="text-amber-700/50 text-lg">✦</span>
+                <span class="border-b border-amber-800/30 pb-1">2026</span>
+            </div>
+
+            <!-- Calligraphy Names -->
+            <div class="text-center my-6 md:my-10">
+                <h1 class="text-5xl md:text-8xl font-script text-[#182842] leading-tight drop-shadow-sm">
+                    Luis <span class="text-3xl md:text-6xl font-serif text-[#c49a45] mx-2">&</span> Dayanna
+                </h1>
+            </div>
+
+            <!-- Divider Line Top with Gold Glow -->
+            <div class="w-full flex items-center justify-center my-6">
+                <div class="h-px bg-gradient-to-r from-transparent via-[#d4af37] to-transparent w-full"></div>
+            </div>
+
+            <!-- Main Quote -->
+            <div class="text-center px-2 md:px-12 my-6">
+                <p class="text-base md:text-xl italic font-serif text-gray-800 leading-relaxed font-medium">
+                    "El amor es más hermoso cuando se comparte. Acompáñanos el 19 de diciembre 2026 a celebrar el inicio de nuestro 'para siempre'"
+                </p>
+            </div>
+
+            <!-- Divider Line Bottom -->
+            <div class="w-full flex items-center justify-center my-6">
+                <div class="h-px bg-gradient-to-r from-transparent via-[#d4af37] to-transparent w-full"></div>
+            </div>
+
+            <!-- SAVE THE DATE BUTTON -->
+            <div class="text-center mt-8">
+                <button onclick="downloadCalendarEvent()" class="bg-gradient-to-r from-[#182842] via-[#22395d] to-[#182842] hover:from-[#0f1b2e] hover:to-[#0f1b2e] text-amber-100 text-xs md:text-sm tracking-[0.2em] font-sans-clean py-3.5 px-9 transition-all duration-300 shadow-xl hover:shadow-2xl uppercase rounded-xs border border-[#d4af37]/40 hover:border-[#d4af37]">
+                    GUARDA LA FECHA
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: SONG & PHOTO GALLERY -->
+    <section class="w-full bg-gradient-to-b from-[#fdfaf2] via-[#FAF6ED] to-[#f4ebd9] text-[#2c3848] py-16 px-4 flex flex-col items-center justify-center relative border-t border-b border-[#d4af37]/30 shadow-inner">
+        
+        <!-- LUXURY MUSIC PLAYER CARD -->
+        <div class="text-center mb-10 flex flex-col items-center max-w-xl w-full">
+            <p class="tracking-[0.25em] text-xs md:text-sm font-sans-clean uppercase text-amber-900/90 font-semibold mb-1">
+                NUESTRA CANCIÓN
+            </p>
+            <p class="text-base md:text-lg font-serif italic text-amber-800/90 mb-6">Elvis Presley - Can't Help Falling in Love</p>
+
+            <!-- Custom Elegant Vinyl Music Player Card -->
+            <div class="w-full max-w-md bg-gradient-to-br from-[#182842] via-[#1f3456] to-[#0e1726] p-6 rounded-2xl shadow-2xl border border-[#d4af37]/60 relative overflow-hidden text-amber-100 my-2">
+                
+                <!-- Background Ambient Glow -->
+                <div class="absolute -right-10 -bottom-10 w-36 h-36 bg-[#d4af37]/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                <div class="flex items-center gap-5">
+                    <!-- Spinning Vinyl Element -->
+                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 flex items-center justify-center">
+                        <!-- Vinyl Disk Body -->
+                        <div id="vinylDisk" class="w-full h-full rounded-full bg-neutral-900 border-4 border-neutral-800 shadow-xl flex items-center justify-center animate-spin-slow paused-spin">
+                            <!-- Vinyl Grooves Rings -->
+                            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border border-neutral-700/50 flex items-center justify-center">
+                                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full border border-neutral-700/40 flex items-center justify-center">
+                                    <!-- Center Gold Label -->
+                                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-[#d4af37] to-[#f3e5ab] text-neutral-900 flex items-center justify-center font-bold text-[8px] font-sans-clean shadow-inner">
+                                        E&D
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Song Info & Player Trigger -->
+                    <div class="flex-grow text-left space-y-3">
+                        <div>
+                            <span class="text-[9px] font-sans-clean uppercase tracking-widest text-amber-300/80 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-300/20">
+                                Música de la Boda
+                            </span>
+                            <h4 class="text-base sm:text-lg font-serif font-bold text-amber-100 mt-1 leading-snug">
+                                Can't Help Falling in Love
+                            </h4>
+                            <p class="text-xs font-sans-clean text-amber-200/70">Elvis Presley</p>
+                        </div>
+
+                        <!-- Big Play/Pause Button inside Card -->
+                        <button onclick="toggleAudio()" class="w-full bg-gradient-to-r from-[#d4af37] to-[#b89328] hover:from-[#e3c152] hover:to-[#c49f33] text-[#182842] py-2.5 px-4 rounded-lg font-sans-clean text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2.5 shadow-lg transition-all duration-300 active:scale-95">
+                            <i id="cardPlayIcon" class="fas fa-play text-xs"></i>
+                            <span id="cardBtnText">Reproducir Canción</span>
+                            <!-- Animated Sound wave (hidden when paused) -->
+                            <div id="soundWaveContainer" class="hidden flex items-center gap-0.5 ml-2">
+                                <div class="sound-bar"></div>
+                                <div class="sound-bar"></div>
+                                <div class="sound-bar"></div>
+                                <div class="sound-bar"></div>
+                                <div class="sound-bar"></div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Direct Link Footer -->
+                <div class="mt-4 pt-3 border-t border-amber-500/20 flex items-center justify-between text-[11px] font-sans-clean text-amber-200/60">
+                    <span id="audioModeLabel"><i class="fas fa-music text-amber-400/80 mr-1"></i> Melodía Romántica Boda</span>
+                    <a href="https://www.youtube.com/watch?v=eTKeQhYVvbQ" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-1 hover:text-amber-100 underline underline-offset-2 transition-colors">
+                        <i class="fab fa-youtube text-red-500"></i> Escuchar en YouTube
+                    </a>
+                </div>
+            </div>
+
+            <div class="w-16 h-0.5 bg-[#d4af37]/50 mx-auto mt-6"></div>
+        </div>
+
+        <!-- PHOTO FRAMES CLUSTER (Matching Screenshots shape layout) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 max-w-5xl w-full items-center justify-center px-4">
+            
+            <!-- Frame 1 (Left Kiss Frame) -->
+            <div class="flex justify-center">
+                <div class="photo-frame-scallop w-64 h-80 md:w-72 md:h-96 relative bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=800&q=80" 
+                         alt="Luis y Dayanna" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src='https://placehold.co/400x500/2c3848/FAF6ED?text=Luis+y+Dayanna'">
+                </div>
+            </div>
+
+            <!-- Frame 2 (Center Hands Frame) -->
+            <div class="flex justify-center">
+                <div class="w-64 h-80 md:w-72 md:h-96 rounded-t-full rounded-b-lg border-4 border-[#FAF6ED] shadow-2xl overflow-hidden hover:scale-105 transition-transform duration-300 ring-1 ring-[#d4af37]/40">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" 
+                         alt="Manos Juntas" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src='https://placehold.co/400x500/2c3848/FAF6ED?text=Anillos'">
+                </div>
+            </div>
+
+            <!-- Frame 3 (Right Beach Frame) -->
+            <div class="flex justify-center">
+                <div class="photo-frame-clover w-64 h-80 md:w-72 md:h-96 relative bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" 
+                         alt="Playa Boda" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src='https://placehold.co/400x500/2c3848/FAF6ED?text=Playa'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: CEREMONIA & RECEPCION -->
+    <section class="w-full luxury-bg text-white py-20 px-4 flex flex-col items-center justify-center relative overflow-hidden border-t border-[#d4af37]/20">
+        
+        <!-- Ambient Glowing Bokeh Particles -->
+        <div class="bokeh-light w-36 h-36 top-12 left-10 opacity-30" style="animation-delay: 1s;"></div>
+        <div class="bokeh-light w-44 h-44 bottom-16 right-12 opacity-35" style="animation-delay: 2s;"></div>
+
+        <!-- CEREMONIA -->
+        <div class="max-w-2xl w-full text-center z-10 flex flex-col items-center">
+            
+            <h2 class="text-3xl md:text-5xl font-serif-title tracking-[0.25em] uppercase mb-4 text-[#FAF6ED] drop-shadow-md">
+                CEREMONIA
+            </h2>
+
+            <!-- Hand holding string graphic -->
+            <div class="my-3 flex items-center justify-center w-full max-w-md">
+                <div class="h-px bg-gradient-to-r from-transparent via-[#d4af37] to-transparent flex-grow"></div>
+                <div class="mx-4 text-[#d4af37]">
+                    <svg class="w-8 h-8 inline-block fill-current" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+                <div class="h-px bg-gradient-to-r from-transparent via-[#d4af37] to-transparent flex-grow"></div>
+            </div>
+
+            <!-- Confirmar Asistencia Button -->
+            <button onclick="openRsvpModal()" class="my-6 bg-gradient-to-r from-[#536b5c] to-[#3f5346] hover:from-[#3f5346] hover:to-[#2e3e34] text-white font-sans-clean text-xs md:text-sm tracking-[0.2em] px-8 py-3.5 transition-all rounded-xs shadow-lg hover:shadow-xl uppercase border border-emerald-300/40">
+                CONFIRMAR ASISTENCIA
+            </button>
+
+            <div class="space-y-3 font-serif my-4">
+                <p class="italic text-lg md:text-xl font-script text-amber-200">Confirmar Asistencia</p>
+                <p class="text-sm font-sans-clean tracking-wider text-amber-100/80">01 noviembre 2026</p>
+                
+                <div class="pt-4">
+                    <p class="text-xs font-sans-clean tracking-[0.2em] text-amber-300/70 uppercase">LUGAR</p>
+                    <p class="text-base md:text-lg font-serif-title tracking-wider mt-1 text-white">IGLESIA DE SAN ROQUE</p>
+                </div>
+
+                <div class="pt-2">
+                    <p class="text-xs font-sans-clean tracking-[0.2em] text-amber-300/70 uppercase">DÍA</p>
+                    <p class="text-base md:text-lg font-serif-title tracking-wider mt-1 text-white">19 DE DICIEMBRE 2026</p>
+                </div>
+
+                <div class="pt-2">
+                    <p class="text-xs font-sans-clean tracking-[0.2em] text-amber-300/70 uppercase">HORA</p>
+                    <p class="text-base md:text-lg font-serif-title tracking-wider mt-1 text-white">10:00 AM</p>
+                </div>
+            </div>
+
+            <div class="w-3/4 border-b border-[#d4af37]/30 my-10"></div>
+
+            <!-- RECEPCION -->
+            <h2 class="text-3xl md:text-5xl font-serif-title tracking-[0.25em] uppercase mb-6 text-[#FAF6ED] drop-shadow-md">
+                RECEPCIÓN
+            </h2>
+
+            <div class="space-y-4 font-serif">
+                <div>
+                    <p class="text-xs font-sans-clean tracking-[0.2em] text-amber-300/70 uppercase">LUGAR</p>
+                    <p class="text-base md:text-lg font-serif-title tracking-wider mt-1 text-white">PALO ALTO BY LA ROCA</p>
+                </div>
+
+                <div>
+                    <p class="text-xs font-sans-clean tracking-[0.2em] text-amber-300/70 uppercase">HORA</p>
+                    <p class="text-base md:text-lg font-serif-title tracking-wider mt-1 text-white">12:30 PM</p>
+                </div>
+
+                <div class="max-w-lg mx-auto text-xs md:text-sm font-sans-clean tracking-wide text-gray-200 leading-relaxed pt-4 px-4 uppercase bg-white/5 p-4 rounded border border-white/10 backdrop-blur-xs">
+                    QUEREMOS CELEBRAR CON USTEDES NUESTRO ALMUERZO DE BODA. PERO ESTA VEZ SERÁ UN ENCUENTRO SENCILLO, POR LO QUE CADA UNO CUBRIRÁ SU CONSUMO, ASÍ TODOS PODREMOS DISFRUTAR. NUESTRO MAYOR DESEO ES PODER COMPARTIR CONTIGO ESPERAMOS VERTE EN NUESTRO DÍA IMPORTANTE.
+                </div>
+
+                <p class="text-[10px] md:text-xs font-sans-clean text-amber-200/70 uppercase pt-2 tracking-wider">
+                    SI DESEAS MÁS INFORMACIÓN RESPECTO A LA ALIMENTACIÓN, NOS ESCRIBES Y TE DAREMOS TODOS LOS DETALLES
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: DRESS CODE, PALETTE & GIFTS -->
+    <section class="w-full luxury-bg text-white py-16 px-4 flex flex-col items-center justify-center relative border-t border-[#d4af37]/20">
+        <div class="max-w-xl w-full flex flex-col items-center space-y-10 z-10">
+            
+            <!-- Banner 1: Código de vestimenta -->
+            <div class="text-center w-full">
+                <div class="ribbon-banner font-serif text-lg md:text-xl font-normal tracking-wide">
+                    Código de vestimenta
+                </div>
+                <p class="mt-4 text-lg md:text-xl font-serif text-amber-100">Formal</p>
+            </div>
+
+            <!-- Banner 2: Sugerencia de Colores -->
+            <div class="text-center w-full">
+                <div class="ribbon-banner font-serif text-lg md:text-xl font-normal tracking-wide">
+                    Sugerencia de Colores
+                </div>
+                <div class="flex items-center justify-center gap-3 md:gap-4 mt-6">
+                    <!-- Color 1: Dusty Pink -->
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#e88a9a] border-2 border-amber-200/80 shadow-lg transform hover:scale-110 transition-transform" title="Rosa empolvado"></div>
+                    <!-- Color 2: Sage Green -->
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#6c8f70] border-2 border-amber-200/80 shadow-lg transform hover:scale-110 transition-transform" title="Verde sabio"></div>
+                    <!-- Color 3: Soft Nude / Beige -->
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#f3d3c1] border-2 border-amber-200/80 shadow-lg transform hover:scale-110 transition-transform" title="Nude / Beige"></div>
+                    <!-- Color 4: Warm Copper / Terracotta -->
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#c87038] border-2 border-amber-200/80 shadow-lg transform hover:scale-110 transition-transform" title="Terracota"></div>
+                    <!-- Color 5: Deep Wine / Burgundy -->
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#6b2533] border-2 border-amber-200/80 shadow-lg transform hover:scale-110 transition-transform" title="Vino"></div>
+                </div>
+            </div>
+
+            <!-- Banner 3: Obsequios -->
+            <div class="text-center w-full">
+                <div class="ribbon-banner font-serif text-lg md:text-xl font-normal tracking-wide">
+                    Obsequios
+                </div>
+                <p class="mt-4 text-xs md:text-sm font-sans-clean text-amber-100/90 max-w-md mx-auto leading-relaxed">
+                    Su presencia es nuestro mayor regalo. Si desean hacernos un obsequio, será bienvenido en forma de sobre.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 5: FINAL QUOTE & FOOTER -->
+    <section class="w-full luxury-bg text-white py-20 px-4 flex flex-col items-center justify-center relative overflow-hidden border-t border-[#d4af37]/30">
+        
+        <!-- Ambient Glowing Bokeh Particles -->
+        <div class="bokeh-light w-48 h-48 bottom-10 left-1/2 -translate-x-1/2 opacity-30"></div>
+
+        <!-- Quote Content -->
+        <div class="max-w-2xl text-center z-10 my-10 px-6">
+            <h3 class="text-3xl md:text-5xl font-serif leading-snug tracking-wide text-[#FAF6ED] drop-shadow-md">
+                Que Dios sea el centro de esta unión y de la celebración que queremos vivir contigo
+            </h3>
+            <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto my-6"></div>
+            <p class="font-sans-clean text-sm tracking-[0.25em] text-amber-200/90 uppercase">
+                Dayanna y Luis
+            </p>
+        </div>
+    </section>
+
+    <!-- RSVP MODAL -->
+    <div id="rsvpModal" class="fixed inset-0 z-50 flex items-center justify-center hidden p-4 modal-overlay">
+        <div class="luxury-card-bg gold-border-card text-[#2c3848] rounded-lg max-w-lg w-full p-6 md:p-8 shadow-2xl relative">
+            
+            <button onclick="closeRsvpModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-xl">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <h3 class="text-2xl font-serif-title text-[#182842] text-center mb-2">Confirmar Asistencia</h3>
+            <p class="text-xs font-sans-clean text-center text-gray-600 mb-6">Por favor confirma antes del 01 de noviembre de 2026</p>
+
+            <form id="rsvpForm" onsubmit="submitRsvp(event)" class="space-y-4 font-sans-clean text-xs">
+                <div>
+                    <label class="block font-semibold mb-1 text-gray-700">Nombre completo</label>
+                    <input type="text" required placeholder="Tu nombre y apellido" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#182842] outline-none">
+                </div>
+
+                <div>
+                    <label class="block font-semibold mb-1 text-gray-700">¿Asistirás a la boda?</label>
+                    <select required class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#182842] outline-none bg-white">
+                        <option value="">Selecciona una opción</option>
+                        <option value="si">¡Sí, ahí estaré con mucho gusto!</option>
+                        <option value="no">Lo siento, no podré asistir</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block font-semibold mb-1 text-gray-700">Número de acompañantes</label>
+                    <input type="number" min="0" max="5" value="0" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#182842] outline-none">
+                </div>
+
+                <div>
+                    <label class="block font-semibold mb-1 text-gray-700">Mensaje para los novios (Opcional)</label>
+                    <textarea rows="3" placeholder="Déjanos unas palabras..." class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#182842] outline-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-[#182842] hover:bg-[#0f1b2e] text-white py-3 font-semibold tracking-wider uppercase rounded transition-colors text-sm shadow-md border border-[#d4af37]/30">
+                    Enviar Confirmación
+                </button>
+            </form>
+
+            <div id="rsvpSuccess" class="hidden text-center py-8 space-y-3">
+                <i class="fas fa-check-circle text-5xl text-emerald-600"></i>
+                <h4 class="text-xl font-serif text-[#182842]">¡Muchas Gracias!</h4>
+                <p class="text-sm text-gray-600">Hemos recibido tu respuesta con éxito. ¡Esperamos verte pronto!</p>
+                <button onclick="closeRsvpModal()" class="mt-4 px-6 py-2 bg-[#182842] text-white rounded text-xs">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT CONTROLS -->
+    <script>
+        let isPlaying = false;
+
+        // Web Audio API Synth Engine for "Can't Help Falling in Love"
+        class RomanticMusicBox {
+            constructor() {
+                this.ctx = null;
+                this.isPlaying = false;
+                this.timer = null;
+                this.noteIndex = 0;
+            }
+
+            init() {
+                if (!this.ctx) {
+                    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                    this.ctx = new AudioCtx();
+                }
+                if (this.ctx.state === 'suspended') {
+                    this.ctx.resume();
+                }
+            }
+
+            playNote(freq, duration, type = 'sine', volume = 0.2) {
+                if (!this.ctx || !this.isPlaying) return;
+                try {
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+
+                    osc.type = type;
+                    osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+
+                    // Smooth music box pluck envelope
+                    gain.gain.setValueAtTime(0.001, this.ctx.currentTime);
+                    gain.gain.linearRampToValueAtTime(volume, this.ctx.currentTime + 0.03);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
+
+                    osc.connect(gain);
+                    gain.connect(this.ctx.destination);
+
+                    osc.start();
+                    osc.stop(this.ctx.currentTime + duration);
+                } catch(e) {
+                    console.warn("Synth error:", e);
+                }
+            }
+
+            start() {
+                this.init();
+                this.isPlaying = true;
+                this.noteIndex = 0;
+                this.step();
+            }
+
+            stop() {
+                this.isPlaying = false;
+                if (this.timer) clearTimeout(this.timer);
+            }
+
+            step() {
+                if (!this.isPlaying) return;
+
+                // Melodic sequence of "Can't Help Falling in Love"
+                const sequence = [
+                    // Wise men say
+                    [261.63, 130.81, 650],  // C4, C3
+                    [392.00, 196.00, 650],  // G4, G3
+                    [523.25, 261.63, 950],  // C5, C4
+                    // Only fools rush in
+                    [493.88, 246.94, 650],  // B4, B3
+                    [440.00, 220.00, 650],  // A4, A3
+                    [392.00, 196.00, 950],  // G4, G3
+                    // But I can't help
+                    [349.23, 174.61, 450],  // F4, F3
+                    [392.00, 196.00, 450],  // G4
+                    [440.00, 220.00, 450],  // A4
+                    [493.88, 246.94, 450],  // B4
+                    [523.25, 261.63, 450],  // C5
+                    [587.33, 293.66, 450],  // D5
+                    // Falling in love with you
+                    [659.25, 329.63, 700],  // E5, E4
+                    [698.46, 349.23, 350],  // F5
+                    [659.25, 329.63, 600],  // E5
+                    [587.33, 293.66, 600],  // D5
+                    [523.25, 261.63, 1300], // C5, C4
+                ];
+
+                const item = sequence[this.noteIndex % sequence.length];
+                
+                // Primary Chime
+                this.playNote(item[0], item[2] / 1000 * 1.8, 'sine', 0.22);
+                // Sparkling Harmony
+                this.playNote(item[0] * 2, item[2] / 1000 * 1.2, 'sine', 0.07);
+                // Warm Bass
+                if (item[1]) {
+                    this.playNote(item[1], item[2] / 1000 * 2.2, 'triangle', 0.15);
+                }
+
+                this.noteIndex++;
+                this.timer = setTimeout(() => this.step(), item[2]);
+            }
+        }
+
+        const musicBox = new RomanticMusicBox();
+
+        function updateUIState(playing) {
+            isPlaying = playing;
+            const mainIcon = document.getElementById('musicMainIcon');
+            const statusText = document.getElementById('musicStatusText');
+            const cardPlayIcon = document.getElementById('cardPlayIcon');
+            const cardBtnText = document.getElementById('cardBtnText');
+            const vinylDisk = document.getElementById('vinylDisk');
+            const soundWaveContainer = document.getElementById('soundWaveContainer');
+
+            if (playing) {
+                if (mainIcon) mainIcon.className = 'fas fa-pause text-xs';
+                if (statusText) statusText.textContent = 'REPRODUCIENDO';
+                if (cardPlayIcon) cardPlayIcon.className = 'fas fa-pause text-xs';
+                if (cardBtnText) cardBtnText.textContent = 'Pausar Canción';
+                if (vinylDisk) vinylDisk.classList.remove('paused-spin');
+                if (soundWaveContainer) soundWaveContainer.classList.remove('hidden');
+            } else {
+                if (mainIcon) mainIcon.className = 'fas fa-play text-xs';
+                if (statusText) statusText.textContent = 'TOCA PARA REPRODUCIR';
+                if (cardPlayIcon) cardPlayIcon.className = 'fas fa-play text-xs';
+                if (cardBtnText) cardBtnText.textContent = 'Reproducir Canción';
+                if (vinylDisk) vinylDisk.classList.add('paused-spin');
+                if (soundWaveContainer) soundWaveContainer.classList.add('hidden');
+            }
+        }
+
+        // ====== YOUTUBE (video escondido) ======
+        // Para cambiar de canción, solo cambia este ID (lo que va después de v= en el enlace)
+        const YT_VIDEO_ID = 'eTKeQhYVvbQ';
+        let ytPlayer = null, ytReady = false, ytFailed = false, ytWantPlay = false;
+
+        function loadYouTubeAPI() {
+            const tag = document.createElement('script');
+            tag.src = 'https://www.youtube.com/iframe_api';
+            tag.onerror = () => { ytFailed = true; };
+            document.head.appendChild(tag);
+        }
+
+        window.onYouTubeIframeAPIReady = function () {
+            ytPlayer = new YT.Player('ytPlayerHolder', {
+                width: '200',
+                height: '200',
+                videoId: YT_VIDEO_ID,
+                playerVars: { playsinline: 1, controls: 0, rel: 0, modestbranding: 1, loop: 1, playlist: YT_VIDEO_ID },
+                events: {
+                    onReady: () => {
+                        ytReady = true;
+                        ytPlayer.setVolume(80);
+                        if (ytWantPlay) ytPlayer.playVideo();
+                    },
+                    onStateChange: (e) => {
+                        if (e.data === YT.PlayerState.PLAYING) {
+                            updateUIState(true);
+                        } else if (e.data === YT.PlayerState.PAUSED) {
+                            ytWantPlay = false;
+                            updateUIState(false);
+                        }
+                    },
+                    onError: (e) => {
+                        console.warn('Error de YouTube, usando caja de música:', e.data);
+                        ytFailed = true;
+                        if (ytWantPlay) startSynthAudio();
+                    }
+                }
+            });
+        };
+
+        function toggleAudio() {
+            if (isPlaying) {
+                ytWantPlay = false;
+                try { if (ytPlayer && ytReady) ytPlayer.pauseVideo(); } catch (e) {}
+                musicBox.stop();
+                updateUIState(false);
+                return;
+            }
+
+            ytWantPlay = true;
+            updateUIState(true); // respuesta inmediata y evita dobles disparos
+
+            if (ytFailed || (!ytReady && typeof YT === 'undefined' && !document.querySelector('script[src*="iframe_api"]'))) {
+                startSynthAudio();
+                return;
+            }
+
+            if (ytReady) {
+                ytPlayer.playVideo();
+                // Si en 6 s no arrancó (bloqueo del navegador), volver al estado de pausa
+                setTimeout(() => {
+                    if (!ytWantPlay || !ytPlayer) return;
+                    const st = ytPlayer.getPlayerState();
+                    if (st !== 1 && st !== 3) { ytWantPlay = false; updateUIState(false); }
+                }, 6000);
+            }
+            // Si aún no está listo, onReady lo reproducirá
+        }
+
+        function startSynthAudio() {
+            if (musicBox.isPlaying) return; // evita duplicar la melodía
+            try {
+                musicBox.start();
+                updateUIState(true);
+                const label = document.getElementById('audioModeLabel');
+                if (label) {
+                    label.innerHTML = `<i class="fas fa-compact-disc text-amber-400 animate-spin mr-1"></i> Caja de Música: Can't Help Falling In Love`;
+                }
+            } catch (e) {
+                console.error('No se pudo iniciar el sintetizador:', e);
+                updateUIState(false);
+            }
+        }
+
+        function initAutoplayOnInteraction() {
+            const removeListeners = () => {
+                document.removeEventListener('click', startPlay);
+                document.removeEventListener('touchstart', startPlay);
+            };
+            const startPlay = (e) => {
+                removeListeners();
+                if (e.target.closest && e.target.closest('[onclick*="toggleAudio"]')) return;
+                if (!isPlaying) toggleAudio();
+            };
+            document.addEventListener('click', startPlay);
+            document.addEventListener('touchstart', startPlay);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadYouTubeAPI();
+            initAutoplayOnInteraction();
+        });
+
+        function downloadCalendarEvent() {
+            const title = "Boda Luis & Dayanna";
+            const description = "Acompáñanos a celebrar nuestra boda en la Iglesia de San Roque y posterior recepción en Palo Alto by La Roca.";
+            const location = "Iglesia de San Roque & Palo Alto by La Roca";
+            const startDate = "20261219T100000";
+            const endDate = "20261219T180000";
+
+            const icsContent = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'PRODID:-//Luis y Dayanna Boda//ES',
+                'BEGIN:VEVENT',
+                `SUMMARY:${title}`,
+                `DESCRIPTION:${description}`,
+                `LOCATION:${location}`,
+                `DTSTART:${startDate}`,
+                `DTEND:${endDate}`,
+                'END:VEVENT',
+                'END:VCALENDAR'
+            ].join('\n');
+
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute('download', 'Boda_Luis_y_Dayanna.ics');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Modal Controls
+        function openRsvpModal() {
+            document.getElementById('rsvpModal').classList.remove('hidden');
+        }
+
+        function closeRsvpModal() {
+            document.getElementById('rsvpModal').classList.add('hidden');
+            document.getElementById('rsvpForm').reset();
+            document.getElementById('rsvpForm').classList.remove('hidden');
+            document.getElementById('rsvpSuccess').classList.add('hidden');
+        }
+
+        function submitRsvp(e) {
+            e.preventDefault();
+            document.getElementById('rsvpForm').classList.add('hidden');
+            document.getElementById('rsvpSuccess').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
